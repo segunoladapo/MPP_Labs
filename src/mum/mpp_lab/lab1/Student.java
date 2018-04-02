@@ -6,12 +6,12 @@ public class Student extends Person {
     private double gpa;
     private ArrayList<Course> courses;
 
-    public Student(String name, String phone,int age, int gpa){
+    public Student(String name, String phone,int age, double gpa){
         this.setName(name);
         this.setPhone(phone);
         this.setAge(age);
         this.gpa = gpa;
-    })
+    }
     public double getGpa() {
         return gpa;
     }
