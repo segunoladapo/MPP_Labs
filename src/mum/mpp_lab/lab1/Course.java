@@ -36,4 +36,13 @@ public class Course {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if(!(obj instanceof Course)){
+            return false;
+        }
+        Course course = (Course) obj;
+        return this.number.equals(course.getNumber());
+    }
 }

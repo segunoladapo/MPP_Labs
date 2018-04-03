@@ -120,6 +120,25 @@ public class Department {
                 case 'u':
                     dept.unitsPerFaculty();
                     break;
+                case 'p':
+                    putText("Enter Faculty Member name");
+                    String facultyName = getString();
+                    for (Person person : dept.persons) {
+                        if (person.getName().equals(facultyName)) {
+                            List<Course> courses = ((Faculty) person).getCourses();
+                            for (Course course : courses) {
+                                for (Person student : dept.persons) {
+                                    if (student instanceof Student) {
+                                        if (((Student) student).getCourses().contains(course)) {
+                                            System.out.println("Course " + course.getNumber() + " is offered by " +
+                                                    student.getName());
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
                 case 'q':
                     return;
                 default:
