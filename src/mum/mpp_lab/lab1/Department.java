@@ -1,5 +1,8 @@
 package mum.mpp_lab.lab1;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,24 +14,8 @@ public class Department {
         persons = new ArrayList<>();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void addPerson(Person person) {
         persons.add(person);
-    }
-
-    public void addFaculty(Person faculty) {
-        persons.add(faculty);
-    }
-
-    public void addStudent(Person student) {
-        persons.add(student);
     }
 
     public double getTotalSalary() {
@@ -66,15 +53,15 @@ public class Department {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Department dept = new Department();
         Person frankMoore = new Faculty("Frank Moore", "472-5921", 43, 10000);
         Person samHoward = new Faculty("Sam Howard", "472-7222", 55, 9500);
         Person johnDoodle = new Faculty("John Doodle", "472-6190", 39, 8600);
 
         dept.addPerson(frankMoore);
-        dept.addFaculty(samHoward);
-        dept.addFaculty(johnDoodle);
+        dept.addPerson(samHoward);
+        dept.addPerson(johnDoodle);
 
 
         // Create student objects
@@ -83,8 +70,8 @@ public class Department {
         Person leeJohnson = new Student("Lee Johnson", "472-6009", 19, 3.65);
 
         dept.addPerson(johnDoe);
-        dept.addStudent(maryJones);
-        dept.addStudent(leeJohnson);
+        dept.addPerson(maryJones);
+        dept.addPerson(leeJohnson);
 
         Course programming = new Course("CS201", "Programming 1", 4, (Faculty) johnDoodle);
         Course databases = new Course("CS360", "Databases", 3, (Faculty) samHoward);
@@ -116,10 +103,55 @@ public class Department {
         ((Student) leeJohnson).setCourses(dataStructures);
         ((Student) leeJohnson).setCourses(advncdArchitecture);
 
-        System.out.println("Total Salary: " + dept.getTotalSalary());
-        dept.showAllMembers();
-        dept.unitsPerFaculty();
+        while (true) {
+            double totsalary = 0;
+            putText("Enter first letter of ");
+            putText("getTotalSalary, showAllMembers, unitsPerFaculty or quit : ");
+            int choice = getChar();
+            switch (choice) {
+                case 'g':
+                    totsalary = dept.getTotalSalary();
+                    putText("Total sum of all salaries is:");
+                    putText(String.valueOf(totsalary) + "\n");
+                    break;
+                case 's':
+                    dept.showAllMembers();
+                    break;
+                case 'u':
+                    dept.unitsPerFaculty();
+                    break;
+                case 'q':
+                    return;
+                default:
+                    putText("Invalid entry\n");
+            }  // end switch
+        }  // end while
 
+    }
+
+    private static void taskSelection() {
+
+    }  // end main()
+
+    public static void putText(String s) //writes string s to the screen
+    {
+        System.out.println(s);
+    }
+
+    // -------------------------------------------------------------
+    public static String getString() throws IOException  //reads a string from the keyboard input
+    {
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        String s = br.readLine();
+        return s;
+    }
+
+    // -------------------------------------------------------------
+    public static char getChar() throws IOException //reads a character from the keyboard input
+    {
+        String s = getString();
+        return s.charAt(0);
     }
 
 
