@@ -86,12 +86,12 @@ public class Department {
         dept.addStudent(maryJones);
         dept.addStudent(leeJohnson);
 
-        Course programming = new Course("CS201", "Programming 1", 4);
-        Course databases = new Course("CS360", "Databases", 3);
-        Course compilers = new Course("CS404", "Compilers", 4);
-        Course dataStructures = new Course("CS240", "Data structures", 2);
-        Course softwareEngr = new Course("CS301", "Software Engineering", 3);
-        Course advncdArchitecture = new Course("CS450", "Advanced Architecture", 5);
+        Course programming = new Course("CS201", "Programming 1", 4, (Faculty) johnDoodle);
+        Course databases = new Course("CS360", "Databases", 3, (Faculty) samHoward);
+        Course compilers = new Course("CS404", "Compilers", 4, (Faculty) johnDoodle);
+        Course dataStructures = new Course("CS240", "Data structures", 2, (Faculty) johnDoodle);
+        Course softwareEngr = new Course("CS301", "Software Engineering", 3, (Faculty) samHoward);
+        Course advncdArchitecture = new Course("CS450", "Advanced Architecture", 5, (Faculty) frankMoore);
 
         ((Faculty) johnDoodle).setCourses(programming);
         ((Faculty) johnDoodle).setCourses(compilers);
