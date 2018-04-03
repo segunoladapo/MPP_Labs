@@ -11,7 +11,8 @@ public class Student extends Person {
         this.setPhone(phone);
         this.setAge(age);
         this.gpa = gpa;
-    })
+        this.courses =  new ArrayList<>();
+    }
     public double getGpa() {
         return gpa;
     }
@@ -24,7 +25,7 @@ public class Student extends Person {
         return courses;
     }
 
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
+    public void setCourses(Course courses) {
+        this.courses.add(courses);
     }
 }

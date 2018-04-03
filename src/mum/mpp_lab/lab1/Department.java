@@ -1,7 +1,15 @@
 package mum.mpp_lab.lab1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Department {
     private String name;
+    private List<Person> persons;
+
+    public Department() {
+        persons = new ArrayList<>();
+    }
 
     public String getName() {
         return name;
@@ -11,18 +19,52 @@ public class Department {
         this.name = name;
     }
 
-    public void addPerson(Person person){
-
+    public void addPerson(Person person) {
+        persons.add(person);
     }
 
-    public void addFaculty(Person faculty){
-
+    public void addFaculty(Person faculty) {
+        persons.add(faculty);
     }
 
-    public void addStudent(Person student){
-
+    public void addStudent(Person student) {
+        persons.add(student);
     }
 
+    public double getTotalSalary() {
+        double totalSalary = 0.0;
+        for (Person person : persons) {
+            if (person instanceof Staff) {
+                //Safe to downcast
+                totalSalary += ((Staff) person).getSalary();
+            }
+            if (person instanceof Faculty) {
+                //Safe to downcast
+                totalSalary += ((Faculty) person).getSalary();
+            }
+        }
+        return totalSalary;
+    }
+
+    public void showAllMembers() {
+        for (Person person : persons) {
+            System.out.println(person.getName() + " " + person.getPhone() + " " + person.getAge());
+        }
+    }
+
+    public void unitsPerFaculty() {
+        for (Person person : persons) {
+            if (person instanceof Faculty) {
+                Faculty faculty = (Faculty) person;
+                List<Course> courses = faculty.getCourses();
+                int totalNumUnits = 0;
+                for (Course course : courses) {
+                    totalNumUnits += course.getUnits();
+                }
+                System.out.println(faculty.getName() + " Total Units: " + totalNumUnits);
+            }
+        }
+    }
 
     public static void main(String[] args) {
         Department dept = new Department();
@@ -43,6 +85,40 @@ public class Department {
         dept.addPerson(johnDoe);
         dept.addStudent(maryJones);
         dept.addStudent(leeJohnson);
+
+        Course programming = new Course("CS201", "Programming 1", 4);
+        Course databases = new Course("CS360", "Databases", 3);
+        Course compilers = new Course("CS404", "Compilers", 4);
+        Course dataStructures = new Course("CS240", "Data structures", 2);
+        Course softwareEngr = new Course("CS301", "Software Engineering", 3);
+        Course advncdArchitecture = new Course("CS450", "Advanced Architecture", 5);
+
+        ((Faculty) johnDoodle).setCourses(programming);
+        ((Faculty) johnDoodle).setCourses(compilers);
+        ((Faculty) johnDoodle).setCourses(dataStructures);
+
+        ((Faculty) samHoward).setCourses(databases);
+        ((Faculty) samHoward).setCourses(softwareEngr);
+
+        ((Faculty) frankMoore).setCourses(advncdArchitecture);
+
+        ((Student) johnDoe).setCourses(programming);
+        ((Student) johnDoe).setCourses(databases);
+        ((Student) johnDoe).setCourses(compilers);
+        ((Student) johnDoe).setCourses(softwareEngr);
+
+        ((Student) maryJones).setCourses(programming);
+        ((Student) maryJones).setCourses(compilers);
+        ((Student) maryJones).setCourses(advncdArchitecture);
+
+        ((Student) leeJohnson).setCourses(programming);
+        ((Student) leeJohnson).setCourses(databases);
+        ((Student) leeJohnson).setCourses(dataStructures);
+        ((Student) leeJohnson).setCourses(advncdArchitecture);
+
+        System.out.println("Total Salary: " + dept.getTotalSalary());
+        dept.showAllMembers();
+        dept.unitsPerFaculty();
 
     }
 

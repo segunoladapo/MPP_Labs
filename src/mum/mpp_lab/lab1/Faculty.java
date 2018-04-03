@@ -6,11 +6,12 @@ public class Faculty extends Person {
     private double salary;
     private ArrayList<Course> courses;
 
-    public Faculty(String name, String phone,int age, int salary){
+    public Faculty(String name, String phone, int age, int salary) {
         this.setName(name);
         this.setPhone(phone);
         this.setAge(age);
         this.salary = salary;
+        courses = new ArrayList<>();
     }
 
     public double getSalary() {
@@ -25,7 +26,7 @@ public class Faculty extends Person {
         return courses;
     }
 
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
+    public void setCourses(Course courses) {
+        this.courses.add(courses);
     }
 }
