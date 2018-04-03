@@ -15,11 +15,11 @@ public class Department {
 
     }
 
-    public void addFaculty(Faculty faculty){
+    public void addFaculty(Person faculty){
 
     }
 
-    public void addStudent(Student student){
+    public void addStudent(Person student){
 
     }
 
