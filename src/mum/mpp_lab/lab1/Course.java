@@ -5,6 +5,12 @@ public class Course {
     private String title;
     private int units;
 
+    public Course(String number, String title, int units){
+        this.number = number;
+        this.title = title;
+        this.units = units;
+    }
+
     public int getUnits() {
         return units;
     }
