@@ -1,4 +1,4 @@
-package mum.mpp_lab.lab1;
+package mum.mpp_lab.lab2;
 
 public class Staff extends Person {
     private double salary;
