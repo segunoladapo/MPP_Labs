@@ -8,6 +8,7 @@ public class Employee {
     private String birthDate;
     private String ssn;
     private double salary;
+    private Position position;
 
     public Employee(long employeeId, String firstName, String middleInitial, String lastName,
                     String birthDate, String ssn, double salary) {
@@ -81,4 +82,11 @@ public class Employee {
         System.out.format("Employee id {%d} Names {%s %s}", employeeId, firstName, lastName);
     }
 
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
 }
