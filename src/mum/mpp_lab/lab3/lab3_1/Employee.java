@@ -8,8 +8,17 @@ public class Employee {
     private String birthDate;
     private String ssn;
     private double salary;
-    private Position position;
 
+    public Employee(long employeeId, String firstName, String middleInitial, String lastName,
+                    String birthDate, String ssn, double salary) {
+        this.employeeId = employeeId;
+        this.firstName = firstName;
+        this.middleInitial = middleInitial;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.ssn = ssn;
+        this.salary = salary;
+    }
 
     public long getEmployeeId() {
         return employeeId;
@@ -67,16 +76,9 @@ public class Employee {
         this.salary = salary;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Employee id {%d} Names {%s %s}", employeeId, firstName, lastName);
+
+    public void print() {
+        System.out.format("Employee id {%d} Names {%s %s}", employeeId, firstName, lastName);
     }
 
-    public Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
-    }
 }

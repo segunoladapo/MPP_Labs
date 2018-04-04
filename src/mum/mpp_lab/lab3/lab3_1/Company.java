@@ -12,8 +12,20 @@ public class Company {
         this.departments = new ArrayList<>();
     }
 
+    public void addDepartment(Department department) {
+        this.departments.add(department);
+    }
+
+    public double getSalary() {
+        double totalSalary = 0.0;
+        for (Department department : departments) {
+            totalSalary += department.getSalary();
+        }
+        return totalSalary;
+    }
+
     public void print() {
-        System.out.println("Department ->" + this.name);
+        System.out.println("Company -> " + this.name);
         for (Department department : departments) {
             department.print();
         }

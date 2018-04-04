@@ -14,7 +14,7 @@ public class Department {
     public Department(String name, String location) {
         this.setName(name);
         this.setLocation(location);
-        setPositions(new ArrayList<>());
+        this.positions = new ArrayList<>();
     }
 
     public String getName() {
@@ -37,14 +37,22 @@ public class Department {
         return positions;
     }
 
-    public void setPositions(List<Position> positions) {
-        this.positions = positions;
+    public void addPosition(Position position) {
+        this.positions.add(position);
     }
 
-    public void print(){
+    public double getSalary() {
+        double totalSalary = 0.0;
+        for (Position position : positions) {
+            totalSalary += position.getSalary();
+        }
+        return totalSalary;
+    }
+
+    public void print() {
         System.out.println("Department -> " + this.name);
-        for(Position position : positions){
-           // position.print();
+        for (Position position : positions) {
+            position.print();
         }
     }
 
