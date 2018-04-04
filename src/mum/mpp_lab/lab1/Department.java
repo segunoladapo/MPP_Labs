@@ -53,6 +53,24 @@ public class Department {
         }
     }
 
+    private static void findFacultyAndCourses(String facultyName, List<Person> persons) {
+        for (Person person : persons) {
+            if (person.getName().equals(facultyName)) {
+                List<Course> courses = ((Faculty) person).getCourses();
+                for (Course course : courses) {
+                    for (Person student : persons) {
+                        if (student instanceof Student) {
+                            if (((Student) student).getCourses().contains(course)) {
+                                System.out.println("Course " + course.getNumber() + " is offered by " +
+                                        student.getName());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         Department dept = new Department();
         Person frankMoore = new Faculty("Frank Moore", "472-5921", 43, 10000);
@@ -104,13 +122,12 @@ public class Department {
         ((Student) leeJohnson).setCourses(advncdArchitecture);
 
         while (true) {
-            double totsalary = 0;
             putText("Enter first letter of ");
             putText("getTotalSalary, showAllMembers, unitsPerFaculty or quit : ");
             int choice = getChar();
             switch (choice) {
                 case 'g':
-                    totsalary = dept.getTotalSalary();
+                    double totsalary = dept.getTotalSalary();
                     putText("Total sum of all salaries is:");
                     putText(String.valueOf(totsalary) + "\n");
                     break;
@@ -123,21 +140,7 @@ public class Department {
                 case 'p':
                     putText("Enter Faculty Member name");
                     String facultyName = getString();
-                    for (Person person : dept.persons) {
-                        if (person.getName().equals(facultyName)) {
-                            List<Course> courses = ((Faculty) person).getCourses();
-                            for (Course course : courses) {
-                                for (Person student : dept.persons) {
-                                    if (student instanceof Student) {
-                                        if (((Student) student).getCourses().contains(course)) {
-                                            System.out.println("Course " + course.getNumber() + " is offered by " +
-                                                    student.getName());
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    findFacultyAndCourses(facultyName, dept.persons);
                     break;
                 case 'q':
                     return;

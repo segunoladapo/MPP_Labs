@@ -2,7 +2,7 @@ package mum.mpp_lab.lab1;
 
 import java.util.Date;
 
-public class StaffStudent extends Faculty {
+public class StaffStudent extends Staff {
 
     private Student student;
     private Date startDate;
@@ -18,9 +18,9 @@ public class StaffStudent extends Faculty {
         return student.getAge();
     }
 
-    public void addCourseToTake(Course course) {
+    public void addCourse(Course course) {
         student.setCourses(course);
-        if (firstCourseTracked == false) {
+        if (!firstCourseTracked) {
             startDate = new Date();
             firstCourseTracked = true;
         }
@@ -28,10 +28,10 @@ public class StaffStudent extends Faculty {
     }
 
     public Date getStartDate() {
-        if (getStartDate() == null) {
+        if (startDate == null) {
             return null;
         }
-        return (Date) getStartDate().clone();
+        return (Date) startDate.clone();
     }
 
 }
