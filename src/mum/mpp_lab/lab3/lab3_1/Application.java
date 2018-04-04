@@ -1,0 +1,46 @@
+package mum.mpp_lab.lab3.lab3_1;
+
+public class Application {
+
+    public static void main(String[] args) {
+        /*
+        Employee firstEmployee = new Employee(0001, "Bob", "MI", "Alex",
+                "1999-12-12","1111-111", 2000);
+        Employee secondEmployee = new Employee(0001, "James", "MI", "Tukur",
+                "1994-12-12","1111-111", 4000);
+        Department accountDepartment = new Department("Account Department", "Verill Hall");
+        Position position = new Position(accountDepartment, "Head of Department", "HOD", firstEmployee);
+        accountDepartment.addPosition(position);
+        Company company = new Company("MUM_Company");
+        company.addDepartment(accountDepartment);
+        company.print();
+        */
+
+        Employee tom = new Employee(0001, "Tom", "MI", "Eny",
+                "1999-12-12","1111-111", 2000);
+
+
+        Employee sue = new Employee(0001, "Sue", "MI", "Kelly",
+                "1999-12-12","1111-111", 2000);
+
+
+        Employee marc = new Employee(0001, "Marc", "MI", "Macmillian",
+                "1999-12-12","1111-111", 2000);
+
+        Employee  bill = new Employee(0001, "Bill", "MI", "Carpenter",
+                "1999-12-12","1111-111", 2000);
+
+        Employee dan = new Employee(0001, "Dan", "MI", "Edward",
+                "1999-12-12","1111-111", 2000);
+
+
+        Employee peter = new Employee(0001, "Peter", "MI", "Frank",
+                "1999-12-12","1111-111", 2000);
+
+
+        Employee stan  = new Employee(0001, "Stan", "MI", "Peter",
+                "1999-12-12","1111-111", 2000);
+
+
+    }
+}

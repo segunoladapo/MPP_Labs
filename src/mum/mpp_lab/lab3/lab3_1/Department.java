@@ -56,6 +56,25 @@ public class Department {
         }
     }
 
+    public void printReportingHierarchy() {
+        for (Position position : positions) {
+            position.printDownLine();
+        }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Department)) {
+            return false;
+        }
+        Department department = (Department) obj;
+        if (this.name.equals(department.getName())) {
+            return true;
+        }
+        return false;
+    }
+
+
     public Company getCompany() {
         return company;
     }
