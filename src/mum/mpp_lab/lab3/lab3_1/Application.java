@@ -40,6 +40,23 @@ public class Application {
 
         Employee stan  = new Employee(0001, "Stan", "MI", "Peter",
                 "1999-12-12","1111-111", 2000);
+        Department salesDepartment = new Department("Sales Department", "Verill Hall");
+        Position tomPOsition = new Position(salesDepartment, "Tom Position","Tom Position", tom);
+        Position suePOsition = new Position(salesDepartment, "Sue Position","Sue Position", sue);
+        Position marcPOsition = new Position(salesDepartment, "Marc Position","Marc Position", marc);
+        Position billPOsition = new Position(salesDepartment, "Bill Position","Bill Position", bill);
+        Position danPOsition = new Position(salesDepartment, "Dan Position","Dan Position", dan);
+        Position peterPOsition = new Position(salesDepartment, "Peter Position","Peter Position", peter);
+        Position stanPOsition = new Position(salesDepartment, "Head of Department","Head of Department", stan);
+        peterPOsition.addInferior(billPOsition);
+        peterPOsition.addInferior(danPOsition);
+        stanPOsition.addInferior(tomPOsition);
+        stanPOsition.addInferior(suePOsition);
+        stanPOsition.addInferior(marcPOsition);
+        stanPOsition.addInferior(peterPOsition);
+        salesDepartment.addPosition(stanPOsition);
+
+
 
 
     }
