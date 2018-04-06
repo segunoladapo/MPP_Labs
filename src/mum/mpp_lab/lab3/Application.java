@@ -10,11 +10,11 @@ public class Application {
         putText("How many packages are you sending");
         String noOfPackages = getString();
         for (int i = 0; i < Integer.valueOf(noOfPackages); i++) {
-            putText("Please enter description for package number + " + (i + 1));
+            putText("Please enter description for package number " + (i + 1));
             String packageDescription = getString();
-            putText("Please enter the weight for package number + " + (i + 1));
+            putText("Please enter the weight for package number " + (i + 1));
             double packageWeight = Double.valueOf(getString());
-            putText("Please enter Zone for package number + " + (i + 1));
+            putText("Please enter Zone for package number " + (i + 1));
             String zone = getString();
             Package pckage = new Package();
             pckage.setPackageDescription(packageDescription);
@@ -28,16 +28,15 @@ public class Application {
             double usMailRate = usMail.costOfPackage(pckage);
             double cheapestRate = upsRate;
             String carrierName = "UPS";
-            if(cheapestRate < fedexRate){
+            if (cheapestRate < fedexRate) {
                 cheapestRate = fedexRate;
                 carrierName = "FedEx";
             }
-            if(cheapestRate < usMailRate){
+            if (cheapestRate < usMailRate) {
                 cheapestRate = usMailRate;
                 carrierName = "US Mail";
             }
-            putText("The cheapest cost");
-
+            putText(packageDescription + "  " + "$" + cheapestRate + "  " + carrierName);
         }
 
     }
