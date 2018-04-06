@@ -58,12 +58,18 @@ public class Position {
         this.inferiors.add(position);
     }
 
-    public void printDownLine() {
+    public void printDownLine(int level) {
+        printWhitespaces(level);
         System.out.println("Position -> " + title + " Description ->" + description + " Employee Name -> " +
                 employee.getFirstName() + " " + employee.getLastName());
         for (Position inferiorPosition : inferiors) {
-            inferiorPosition.printDownLine();
+            inferiorPosition.printDownLine(level + 2);
         }
+    }
+
+    static void printWhitespaces(int count) {
+        for (int i = 0; i < count; i++)
+            System.out.print(" ");
     }
 
     public void print() {

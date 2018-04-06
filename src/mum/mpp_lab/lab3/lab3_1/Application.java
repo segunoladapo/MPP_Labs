@@ -55,6 +55,7 @@ public class Application {
         stanPOsition.addInferior(marcPOsition);
         stanPOsition.addInferior(peterPOsition);
         salesDepartment.addPosition(stanPOsition);
+        salesDepartment.printReportingHierarchy();
 
 
 
