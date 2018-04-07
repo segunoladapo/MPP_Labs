@@ -1,8 +1,9 @@
 package mum.mpp_lab.lab2;
 
+import java.util.ArrayList;
 import java.util.Date;
 
-public class StaffStudent extends Staff {
+public class StaffStudent extends Staff implements IStudent {
 
     private Student student;
     private Date startDate;
@@ -19,12 +20,16 @@ public class StaffStudent extends Staff {
     }
 
     public void addCourse(Course course) {
-        student.setCourses(course);
+        student.addCourse(course);
         if (!firstCourseTracked) {
             startDate = new Date();
             firstCourseTracked = true;
         }
 
+    }
+
+    public ArrayList<Course> getCourses(){
+        return student.getCourses();
     }
 
     public Date getStartDate() {

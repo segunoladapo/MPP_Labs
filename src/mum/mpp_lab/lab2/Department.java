@@ -59,7 +59,7 @@ public class Department {
                 List<Course> courses = ((Faculty) person).getCourses();
                 for (Course course : courses) {
                     for (Person student : persons) {
-                        if (student instanceof Student) {
+                        if (student instanceof IStudent) {
                             if (((Student) student).getCourses().contains(course)) {
                                 System.out.println("Course " + course.getNumber() + " is offered by " +
                                         student.getName());
@@ -107,19 +107,19 @@ public class Department {
 
         ((Faculty) frankMoore).setCourses(advncdArchitecture);
 
-        ((Student) johnDoe).setCourses(programming);
-        ((Student) johnDoe).setCourses(databases);
-        ((Student) johnDoe).setCourses(compilers);
-        ((Student) johnDoe).setCourses(softwareEngr);
+        ((Student) johnDoe).addCourse(programming);
+        ((Student) johnDoe).addCourse(databases);
+        ((Student) johnDoe).addCourse(compilers);
+        ((Student) johnDoe).addCourse(softwareEngr);
 
-        ((Student) maryJones).setCourses(programming);
-        ((Student) maryJones).setCourses(compilers);
-        ((Student) maryJones).setCourses(advncdArchitecture);
+        ((Student) maryJones).addCourse(programming);
+        ((Student) maryJones).addCourse(compilers);
+        ((Student) maryJones).addCourse(advncdArchitecture);
 
-        ((Student) leeJohnson).setCourses(programming);
-        ((Student) leeJohnson).setCourses(databases);
-        ((Student) leeJohnson).setCourses(dataStructures);
-        ((Student) leeJohnson).setCourses(advncdArchitecture);
+        ((Student) leeJohnson).addCourse(programming);
+        ((Student) leeJohnson).addCourse(databases);
+        ((Student) leeJohnson).addCourse(dataStructures);
+        ((Student) leeJohnson).addCourse(advncdArchitecture);
 
         while (true) {
             putText("Enter first letter of ");
