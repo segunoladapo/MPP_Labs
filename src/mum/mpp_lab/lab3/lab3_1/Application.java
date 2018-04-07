@@ -1,5 +1,7 @@
 package mum.mpp_lab.lab3.lab3_1;
 
+import java.util.ArrayList;
+
 public class Application {
 
     public static void main(String[] args) {
@@ -41,6 +43,8 @@ public class Application {
         Employee stan  = new Employee(0001, "Stan", "MI", "Peter",
                 "1999-12-12","1111-111", 2000);
         Department salesDepartment = new Department("Sales Department", "Verill Hall");
+        Company company = new Company("MUM Manufacturing Company");
+
         Position tomPOsition = new Position(salesDepartment, "Tom Position","Tom Position", tom);
         Position suePOsition = new Position(salesDepartment, "Sue Position","Sue Position", sue);
         Position marcPOsition = new Position(salesDepartment, "Marc Position","Marc Position", marc);
@@ -48,15 +52,35 @@ public class Application {
         Position danPOsition = new Position(salesDepartment, "Dan Position","Dan Position", dan);
         Position peterPOsition = new Position(salesDepartment, "Peter Position","Peter Position", peter);
         Position stanPOsition = new Position(salesDepartment, "Head of Department","Head of Department", stan);
+
+        billPOsition.setSuperior(peterPOsition);
+        danPOsition.setSuperior(peterPOsition);
+        tomPOsition.setSuperior(stanPOsition);
+        suePOsition.setSuperior(stanPOsition);
+        marcPOsition.setSuperior(stanPOsition);
+        peterPOsition.setSuperior(peterPOsition);
+
+
         peterPOsition.addInferior(billPOsition);
         peterPOsition.addInferior(danPOsition);
         stanPOsition.addInferior(tomPOsition);
         stanPOsition.addInferior(suePOsition);
         stanPOsition.addInferior(marcPOsition);
         stanPOsition.addInferior(peterPOsition);
-        salesDepartment.addPosition(stanPOsition);
-        salesDepartment.printReportingHierarchy();
 
+
+        salesDepartment.addPosition(stanPOsition);
+        salesDepartment.addPosition(danPOsition);
+        salesDepartment.addPosition(tomPOsition);
+        salesDepartment.addPosition(suePOsition);
+        salesDepartment.addPosition(marcPOsition);
+        salesDepartment.addPosition(billPOsition);
+        salesDepartment.addPosition(peterPOsition);
+
+        //salesDepartment.printReportingHierarchy();
+        company.addDepartment(salesDepartment);
+
+        company.printReportingHierarchy();
 
 
 

@@ -59,7 +59,9 @@ public class Department {
     public void printReportingHierarchy() {
         int level = 0;
         for (Position position : positions) {
-            position.printDownLine(level);
+            if(position.getSuperior() == null) {
+                position.printDownLine(level);
+            }
         }
     }
 

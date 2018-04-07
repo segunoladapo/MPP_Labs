@@ -8,6 +8,7 @@ public class Position {
     private String description;
     private String title;
     private Employee employee;
+    private Position superior;
     private List<Position> inferiors;
 
     public Position(Department department, String description, String title, Employee employee) {
@@ -60,7 +61,7 @@ public class Position {
 
     public void printDownLine(int level) {
         printWhitespaces(level);
-        System.out.println("Position -> " + title + " Description ->" + description + " Employee Name -> " +
+        System.out.println("Position : " + title + " Description : " + description + " Employee Name :  " +
                 employee.getFirstName() + " " + employee.getLastName());
         for (Position inferiorPosition : inferiors) {
             inferiorPosition.printDownLine(level + 2);
@@ -69,12 +70,20 @@ public class Position {
 
     static void printWhitespaces(int count) {
         for (int i = 0; i < count; i++)
-            System.out.print(" ");
+            System.out.print("\t");
     }
 
     public void print() {
         System.out.format("Position -> %s ", description);
         System.out.println();
         employee.print();
+    }
+
+    public Position getSuperior() {
+        return superior;
+    }
+
+    public void setSuperior(Position superior) {
+        this.superior = superior;
     }
 }

@@ -4,6 +4,7 @@ public class Package {
     private String zone;
     private String packageDescription;
     private double weight;
+    private Sender sender;
 
     public String getZone() {
         return zone;
@@ -27,5 +28,13 @@ public class Package {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public Sender getSender() {
+        return sender;
+    }
+
+    public void setSender(Sender sender) {
+        this.sender = sender;
     }
 }

@@ -24,6 +24,12 @@ public class Company {
         return totalSalary;
     }
 
+    public void printReportingHierarchy() {
+        for (Department department : departments) {
+            department.printReportingHierarchy();
+        }
+    }
+
     public void print() {
         System.out.println("Company -> " + this.name);
         for (Department department : departments) {
