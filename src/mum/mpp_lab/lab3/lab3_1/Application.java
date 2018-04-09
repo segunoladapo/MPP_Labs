@@ -80,7 +80,35 @@ public class Application {
         //salesDepartment.printReportingHierarchy();
         company.addDepartment(salesDepartment);
 
+        Department marketingDepartment = new Department("Marketing Department", "Dreier Hall");
+
+        Employee gary  = new Employee(0001, "Gary", "MI", "Hillary",
+                "1999-12-12","1111-111", 2000);
+        Employee anne  = new Employee(0001, "Anne", "MI", "Trump",
+                "1999-12-12","1111-111", 2000);
+        Position garyPosition = new Position(marketingDepartment, "Gary Position","Tom Position", gary);
+        Position annePosition = new Position(marketingDepartment, "Head of Marking Department","Head of Marking Department", anne);
+        garyPosition.setSuperior(annePosition);
+        annePosition.addInferior(garyPosition);
+        marketingDepartment.addPosition(garyPosition);
+        marketingDepartment.addPosition(annePosition);
+
+        company.addDepartment(marketingDepartment);
+
+        Employee lyle  = new Employee(0001, "Lyle", "MI", "John",
+                "1999-12-12","1111-111", 2000);
+        Position lylePosition = new Position(null, "Top Executive","Top Executive", lyle);
+
+        salesDepartment.addPosition(lylePosition);
+        marketingDepartment.addPosition(lylePosition);
+
+        annePosition.setSuperior(lylePosition);
+        stanPOsition.setSuperior(lylePosition);
+
+
         company.printReportingHierarchy();
+
+
 
 
 
