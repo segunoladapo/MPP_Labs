@@ -7,5 +7,8 @@ public class Employee {
         this.empId = empId;
     }
 
+    public void print(){}
+
+
 
 }
