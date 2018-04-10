@@ -18,4 +18,11 @@ public final class PayCheck {
         this.medicare = medicare;
         this.socialSecurity = socialSecurity;
     }
+
+    public void print(){
+
+    }
+    public double getNetPay(){
+
+    }
 }
