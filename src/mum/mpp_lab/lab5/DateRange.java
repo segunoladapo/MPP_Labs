@@ -4,30 +4,30 @@ import java.util.Calendar;
 import java.util.Date;
 
 public final class DateRange {
-    private final Calendar startDate;
-    private final Calendar endDate;
+    private final Date startDate;
+    private final Date endDate;
 
-    public DateRange(Calendar startDate, Calendar endDate) {
+    public DateRange(Date startDate, Date endDate) {
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
     public boolean isInRange(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        return startDate.after(calendar) && endDate.before(calendar);
+        return startDate.after(date) && endDate.before(date);
     }
 
-    public static int getFirstDateOfMonth(Date date) {
+    public static Date getFirstDateOfMonth(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        return cal.getActualMinimum(Calendar.DAY_OF_MONTH);
+        cal.getActualMinimum(Calendar.DAY_OF_MONTH);
+        return cal.getTime();
     }
 
-    public static int getLastDateOfMonth(Date date) {
+    public static Date getLastDateOfMonth(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        return cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+        cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+        return cal.getTime();
     }
 
     @Override

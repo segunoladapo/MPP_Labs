@@ -9,11 +9,13 @@ public class Order {
     private int orderNo;
     private Date orderDate;
     private double orderAmount;
+    private Commissioned employee;
 
-    public Order(int orderNo, Date orderDate, double orderAmount) {
+    public Order(int orderNo, Date orderDate, double orderAmount, Commissioned employee) {
         this.orderNo = orderNo;
         this.orderDate = orderDate;
         this.orderAmount = orderAmount;
+        this.employee = employee;
     }
 
     public Date getOrderDate() {

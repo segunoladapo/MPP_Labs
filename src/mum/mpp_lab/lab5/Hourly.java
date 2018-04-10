@@ -18,7 +18,7 @@ public class Hourly extends Employee {
         this.orders = new ArrayList<>();
     }
 
-    public void calcGrossPay(DateRange dateRange) {
-
+    public double calcGrossPay(DateRange dateRange) {
+        return hourlyWage * hoursPerWeek;
     }
 }
