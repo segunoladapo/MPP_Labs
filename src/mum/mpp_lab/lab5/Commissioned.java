@@ -19,7 +19,9 @@ public class Commissioned extends Employee {
                 totalOrderAmount += order.getOrderAmount();
             }
         }
-        double grossPay = 7.0 / totalOrderAmount * 100;
+        double grossPay = 0.0;
+        if (totalOrderAmount > 0.0)
+            grossPay = 7.0 / totalOrderAmount * 100;
         return grossPay;
     }
 
