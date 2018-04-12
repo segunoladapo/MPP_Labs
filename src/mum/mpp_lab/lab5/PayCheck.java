@@ -27,8 +27,8 @@ public final class PayCheck {
     }
 
     public double getNetPay() {
-        double netPay = grossPay - ((fical / grossPay * 100) + (local / grossPay * 100) + (medicare / grossPay * 100) +
-                (socialSecurity / grossPay * 100));
+        double netPay = grossPay - (((fical / 100) * grossPay) + ((local / 100) * grossPay) + ((medicare / 100) * grossPay) +
+                ((socialSecurity / 100) * grossPay));
         return netPay;
     }
 }

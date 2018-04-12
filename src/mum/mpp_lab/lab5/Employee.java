@@ -21,6 +21,7 @@ public abstract class Employee {
     }
 
     public void print() {
+        System.out.println(empId);
     }
 
     public PayCheck calcCompensation(int month, int year) {
