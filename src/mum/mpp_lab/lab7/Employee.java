@@ -123,5 +123,18 @@ public class Employee {
                 birthDate, employeeId, salary, position);
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Employee employee = (Employee) super.clone();
+        employee.salary = salary;
+        employee.middleInitial = middleInitial;
+        employee.ssn = ssn;
+        employee.birthDate = birthDate;
+        employee.position = position;
+        employee.setLastName(lastName);
+        employee.setMiddleInitial(middleInitial);
+        employee.setEmployeeId(employeeId);
+        return employee;
+    }
 
 }

@@ -117,4 +117,13 @@ public class Position {
     public int hashCode() {
         return Objects.hash(department, description, superior, inferiors);
     }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Position position = (Position) super.clone();
+        position.setDepartment(department);
+        position.setSuperior(superior);
+        position.inferiors = inferiors;
+        return position;
+    }
 }
