@@ -116,4 +116,12 @@ public class Employee {
                 Objects.equals(salary, secondEmployee.getSalary()) &&
                 Objects.equals(position, secondEmployee.getPosition());
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(lastName, firstName, middleInitial, ssn,
+                birthDate, employeeId, salary, position);
+    }
+
+
 }

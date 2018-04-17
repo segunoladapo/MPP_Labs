@@ -60,14 +60,14 @@ public class Position {
     }
 
     public void addInferior(Position position) {
-        this.inferiors.add(position);
+        this.getInferiors().add(position);
     }
 
     public void printDownLine(int level) {
         printWhitespaces(level);
         System.out.println("Position : " + title + " Description : " + description + " Employee Name :  " +
                 employee.getFirstName() + " " + employee.getLastName());
-        for (Position inferiorPosition : inferiors) {
+        for (Position inferiorPosition : getInferiors()) {
             inferiorPosition.printDownLine(level + 2);
         }
     }
@@ -93,7 +93,7 @@ public class Position {
 
     @Override
     public String toString() {
-        return null;
+        return "[" + description + " " + title + " " + "]";
     }
 
     @Override
@@ -105,6 +105,16 @@ public class Position {
         Position position = (Position) obj;
         return Objects.equals(department, position.getDepartment()) &&
                 Objects.equals(description, position.getDescription()) &&
-                Objects.equals(superior, position.getSuperior());
+                Objects.equals(superior, position.getSuperior()) &&
+                Objects.equals(inferiors, position.getInferiors());
+    }
+
+    public List<Position> getInferiors() {
+        return inferiors;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(department, description, superior, inferiors);
     }
 }
