@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
 
@@ -104,6 +105,10 @@ public class Main {
 
         //)  Create an infinite stream of even numbers (0, 2, 4, …)
         // and then, eventually print out only the first 20 even numbers from this stream.
+
+        IntStream.iterate(2, i -> i * 2)
+                .limit(40)
+                .forEach(System.out::println);
 
     }
 
