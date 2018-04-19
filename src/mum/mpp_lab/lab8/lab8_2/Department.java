@@ -70,6 +70,7 @@ public class Department {
     }
 
     private static void findFacultyAndCourses(String facultyName, List<Person> persons) {
+        /*
         for (Person person : persons) {
             if (person.getName().equals(facultyName)) {
                 List<Course> courses = ((Faculty) person).getCourses();
@@ -84,7 +85,23 @@ public class Department {
                     }
                 }
             }
+
         }
+        */
+        persons.stream()
+                .filter(p -> p.getName().equals(facultyName))
+                .forEach(faculty ->{ ((Faculty)faculty).getCourses()
+                .forEach(c ->{
+                    persons.forEach(p -> {
+                        if (p instanceof IStudent) {
+                            if (((Student) p).getCourses().contains(c)) {
+                                Student student = (Student)p;
+                                System.out.println("Course " + c + " is offered by " +
+                                        student.getName());
+                            }
+                        }
+                    }
+                });
     }
 
     public static void main(String[] args) throws IOException {
