@@ -99,8 +99,12 @@ public class Department {
                                             Student student = (Student) p;
                                             System.out.println("Course " + c.getNumber() + " is offered by " +
                                                     student.getName());
-                                        })
-                                    })
+                                        }
+                                    }
+                                });
+                            });
+                });
+
     }
 
     public static void main(String[] args) throws IOException {
