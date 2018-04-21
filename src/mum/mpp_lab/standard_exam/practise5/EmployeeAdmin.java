@@ -13,7 +13,7 @@ public class EmployeeAdmin {
     public static List<String> prepareSsnReport(HashMap<String, Employee> table, List<String> socSecNums) {
         return table.keySet().stream()
                 .filter(socSec -> !socSecNums.contains(socSec))
-                .sorted(Comparator.comparing(String::length))
+                .sorted()
                 .collect(Collectors.toList());
     }
 
